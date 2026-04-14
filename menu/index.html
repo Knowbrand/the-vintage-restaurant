@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu | The Vintage Restaurant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#f4f4f4;
+  color:#222;
+}
+
+/* HEADER */
+.menu-header{
+  text-align:center;
+  padding:60px 8% 20px;
+}
+
+.menu-header h1{
+  font-size:36px;
+  letter-spacing:2px;
+  margin-bottom:25px;
+  color:#b81d1d;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:40px;
+}
+
+.tab{
+  padding:10px 22px;
+  border-radius:30px;
+  background:#fff;
+  cursor:pointer;
+  border:1px solid #ddd;
+  transition:0.3s;
+  font-size:14px;
+}
+
+.tab.active{
+  background:#b81d1d;
+  color:#fff;
+  border-color:#b81d1d;
+}
+
+/* GRID */
+.menu-grid{
+  width:85%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:30px;
+  padding-bottom:80px;
+}
+
+/* CARD */
+.card{
+  background:#fff;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+  text-align:center;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card img{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:50%;
+  margin-bottom:15px;
+}
+
+.card h3{
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.card p{
+  font-size:13px;
+  opacity:.7;
+  margin-bottom:10px;
+}
+
+.price{
+  font-weight:600;
+  margin-bottom:10px;
+}
+
+.btn{
+  background:#b81d1d;
+  color:#fff;
+  padding:8px 16px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:13px;
+}
+</style>
+</head>
+<body>
+
+<section class="menu-header">
+  <h1>OUR MENU</h1>
+
+  <div class="tabs">
+    <div class="tab active" data-category="breakfast">Breakfast</div>
+    <div class="tab" data-category="lunch">Lunch</div>
+    <div class="tab" data-category="dinner">Dinner</div>
+    <div class="tab" data-category="dessert">Dessert</div>
+    <div class="tab" data-category="coffee">Coffee</div>
+  </div>
+</section>
+
+<section class="menu-grid" id="menuContainer"></section>
+
+<script>
+const menuData = {
+  breakfast: generateItems("Breakfast Item"),
+  lunch: generateItems("Lunch Item"),
+  dinner: generateItems("Dinner Item"),
+  dessert: generateItems("Dessert Item"),
+  coffee: generateItems("Coffee Item")
+};
+
+function generateItems(title){
+  return Array.from({length:10},(_,i)=>({
+    name: `${title} ${i+1}`,
+    desc: "Delicious freshly prepared dish made with premium ingredients.",
+    price: "₹199",
+    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300"
+  }));
+}
+
+const container = document.getElementById("menuContainer");
+const tabs = document.querySelectorAll(".tab");
+
+function renderMenu(category){
+  container.innerHTML="";
+  menuData[category].forEach(item=>{
+    container.innerHTML+=`
+      <div class="card">
+        <img src="${item.image}">
+        <h3>${item.name}</h3>
+        <p>${item.desc}</p>
+        <div class="price">${item.price}</div>
+        <button class="btn">Add to Cart</button>
+      </div>
+    `;
+  });
+}
+
+tabs.forEach(tab=>{
+  tab.addEventListener("click",()=>{
+    tabs.forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    renderMenu(tab.dataset.category);
+  });
+});
+
+renderMenu("breakfast");
+</script>
+
+</body>
+</html>
