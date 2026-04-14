@@ -1,39 +1,214 @@
-<!-- ================= PREMIUM FOOTER CTA ================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservation | The Vintage Restaurant</title>
 
-<section class="vintage-footer">
-  <div class="footer-inner">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    <div class="footer-top">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-      <div class="footer-left">
-        <p class="footer-label">Contact</p>
-        <h3>thevintagerestaurant@gmail.com</h3>
-        <p>+91 95002 45333</p>
-      </div>
+body{
+    font-family:'Poppins',sans-serif;
+    background:#0e0e0e;
+    color:#fff;
+}
 
-      <div class="footer-center">
-        <h2>Planning a Celebration?</h2>
-        <a href="#" class="footer-btn">Book Your Event →</a>
-      </div>
+/* HERO */
 
-      <div class="footer-right">
-        <p class="footer-label">Location</p>
-        <h3>Hosur, Tamil Nadu</h3>
-        <p>AVS Residency Road, Inner Ring Rd</p>
-      </div>
+.hero{
+    height:60vh;
+    background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+}
 
-    </div>
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+}
 
-    <div class="footer-bottom">
-      <p>© 2026 The Vintage Restaurant & Party Hall. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">Maps</a>
-      </div>
-    </div>
+.hero h1{
+    position:relative;
+    font-family:'Playfair Display',serif;
+    font-size:48px;
+    letter-spacing:3px;
+}
 
-    <div class="footer-bg-text">LET’S CELEBRATE</div>
+/* SECTION */
 
-  </div>
+.section{
+    padding:80px 8%;
+}
+
+.container{
+    display:flex;
+    gap:60px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+/* FORM */
+
+.form-box{
+    flex:1;
+    min-width:300px;
+}
+
+.form-box h2{
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    margin-bottom:30px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    font-size:14px;
+    margin-bottom:6px;
+    color:#c5a572;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+    padding:12px;
+    background:#1a1a1a;
+    border:1px solid #333;
+    color:#fff;
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:#c5a572;
+}
+
+.btn-gold{
+    margin-top:15px;
+    padding:14px 30px;
+    background:#c5a572;
+    border:none;
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn-gold:hover{
+    background:#e6c78d;
+}
+
+/* IMAGE SIDE */
+
+.image-box{
+    flex:1;
+    min-width:300px;
+}
+
+.image-box img{
+    width:100%;
+    border-radius:6px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+    .container{
+        flex-direction:column;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>RESERVATION</h1>
 </section>
+
+<!-- FORM SECTION -->
+<section class="section">
+    <div class="container">
+
+        <div class="form-box">
+            <h2>Reserve A Table</h2>
+
+            <form>
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="email@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" placeholder="+91 98765 43210" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Time</label>
+                    <select required>
+                        <option value="">Select Time</option>
+                        <option>12:00 PM</option>
+                        <option>1:00 PM</option>
+                        <option>2:00 PM</option>
+                        <option>7:00 PM</option>
+                        <option>8:00 PM</option>
+                        <option>9:00 PM</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Persons</label>
+                    <select required>
+                        <option value="">Select</option>
+                        <option>1 Person</option>
+                        <option>2 Persons</option>
+                        <option>3 Persons</option>
+                        <option>4 Persons</option>
+                        <option>5+ Persons</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-gold">Make A Reservation</button>
+
+            </form>
+        </div>
+
+        <div class="image-box">
+            <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1974" alt="Dining">
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
