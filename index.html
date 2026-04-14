@@ -15,7 +15,6 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  scroll-behavior:smooth;
 }
 
 body{
@@ -26,16 +25,21 @@ body{
 }
 
 section{
-  padding:100px 8%;
+  padding:110px 8%;
+  position:relative;
 }
 
 h1,h2,h3{
   font-family:'Playfair Display',serif;
-  font-weight:600;
 }
 
 .gold{
   color:#F4D06F;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
 }
 
 /* ================= NAVBAR ================= */
@@ -49,27 +53,26 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  transition:all .4s ease;
+  transition:.4s;
   z-index:1000;
 }
 
 header.scrolled{
-  background:rgba(15,15,18,0.95);
+  background:rgba(15,15,18,.95);
   backdrop-filter:blur(10px);
   padding:12px 8%;
-  box-shadow:0 5px 20px rgba(0,0,0,0.4);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .logo{
-  font-family:'Playfair Display',serif;
-  font-size:24px;
+  font-size:22px;
   color:#F4D06F;
 }
 
 nav ul{
   list-style:none;
   display:flex;
-  gap:30px;
+  gap:35px;
 }
 
 nav ul li a{
@@ -77,18 +80,17 @@ nav ul li a{
   color:#fff;
   font-size:14px;
   position:relative;
-  transition:0.3s;
 }
 
 nav ul li a::after{
   content:'';
   position:absolute;
-  width:0%;
+  width:0;
   height:2px;
-  bottom:-5px;
   left:0;
+  bottom:-6px;
   background:#F4D06F;
-  transition:0.3s;
+  transition:.3s;
 }
 
 nav ul li a:hover::after{
@@ -102,11 +104,27 @@ nav ul li a:hover::after{
   border-radius:30px;
   font-size:13px;
   text-decoration:none;
-  transition:0.3s;
+  transition:.3s;
 }
 
 .cta-btn:hover{
   background:#e2bb59;
+}
+
+/* ================= HAMBURGER ================= */
+
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+}
+
+.hamburger span{
+  width:25px;
+  height:2px;
+  background:#fff;
+  transition:.3s;
 }
 
 /* ================= HERO ================= */
@@ -117,23 +135,18 @@ nav ul li a:hover::after{
   align-items:center;
   justify-content:center;
   text-align:center;
-  background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.7)),
   url('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 }
 
-.hero-content{
-  max-width:800px;
-}
-
 .hero h1{
-  font-size:52px;
+  font-size:55px;
   margin-bottom:20px;
 }
 
 .hero p{
-  font-size:16px;
-  opacity:0.8;
-  margin-bottom:40px;
+  opacity:.85;
+  margin-bottom:35px;
 }
 
 .hero-buttons{
@@ -149,7 +162,7 @@ nav ul li a:hover::after{
   border-radius:30px;
   color:#F4D06F;
   text-decoration:none;
-  transition:0.3s;
+  transition:.3s;
 }
 
 .btn-outline:hover{
@@ -157,24 +170,151 @@ nav ul li a:hover::after{
   color:#000;
 }
 
-/* ================= MOBILE ================= */
+/* ================= CARDS ================= */
 
-@media(max-width:768px){
+.grid{
+  display:grid;
+  gap:30px;
+}
 
-  header{
-    padding:15px 6%;
-  }
+.dish-card, .menu-box{
+  background:#111;
+  padding:25px;
+  border-radius:20px;
+  transition:.4s;
+  text-align:center;
+}
+
+.dish-card img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.dish-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+.menu-box:hover{
+  background:#F4D06F;
+  color:#000;
+}
+
+/* ================= DARK SECTION ================= */
+
+.dark{
+  background:#111;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0a0a0a;
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+}
+
+/* ================= FLOATING WHATSAPP ================= */
+
+.whatsapp{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  background:#25D366;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  color:#fff;
+  text-decoration:none;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  z-index:999;
+}
+
+/* ================= MOBILE BOOKING BAR ================= */
+
+.mobile-bar{
+  display:none;
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
 
   nav{
+    position:fixed;
+    top:0;
+    right:-100%;
+    height:100vh;
+    width:260px;
+    background:#111;
+    flex-direction:column;
+    padding-top:100px;
+    transition:.4s;
+  }
+
+  nav ul{
+    flex-direction:column;
+    gap:25px;
+    text-align:center;
+  }
+
+  nav.active{
+    right:0;
+  }
+
+  .hamburger{
+    display:flex;
+  }
+
+  .cta-btn{
     display:none;
   }
 
   .hero h1{
-    font-size:34px;
+    font-size:36px;
   }
 
-  section{
-    padding:70px 6%;
+  .mobile-bar{
+    display:flex;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#F4D06F;
+    justify-content:center;
+    padding:12px;
+    z-index:1000;
+  }
+
+  .mobile-bar a{
+    color:#000;
+    text-decoration:none;
+    font-weight:600;
   }
 
 }
@@ -182,201 +322,12 @@ nav ul li a:hover::after{
 </style>
 </head>
 
-<!-- ================= ABOUT SECTION ================= -->
-
-<section style="background:#111;">
-  <div style="max-width:1100px;margin:auto;text-align:center;">
-    <h2 class="gold" style="font-size:38px;margin-bottom:20px;">Our Story</h2>
-    <p style="max-width:750px;margin:auto;opacity:.8;line-height:1.8;">
-      The Vintage Restaurant & Party Hall is a premium dining destination in Hosur,
-      known for its authentic biryani, signature dishes and elegant celebration space.
-      With warm hospitality and a refined ambience, we make every meal and occasion unforgettable.
-    </p>
-  </div>
-</section>
-
-
-
-<!-- ================= SIGNATURE DISHES ================= -->
-
-<section>
-  <div style="text-align:center;margin-bottom:60px;">
-    <h2 class="gold" style="font-size:38px;">Signature Dishes</h2>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;max-width:1200px;margin:auto;">
-
-    <div class="dish-card">
-      <img src="https://images.unsplash.com/photo-1604908176997-43142e4f0b6f?auto=format&fit=crop&w=800&q=80">
-      <h3>Chicken Maharani</h3>
-      <p>Rich creamy flavour with royal spices.</p>
-    </div>
-
-    <div class="dish-card">
-      <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80">
-      <h3>Special Biryani</h3>
-      <p>Authentic taste crafted with tradition.</p>
-    </div>
-
-    <div class="dish-card">
-      <img src="https://images.unsplash.com/photo-1625944525533-473f1a2a0e5d?auto=format&fit=crop&w=800&q=80">
-      <h3>Pineapple Chicken</h3>
-      <p>Perfect blend of sweet & savoury.</p>
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- ================= PARTY HALL ================= -->
-
-<section style="background:#111;">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:60px;align-items:center;max-width:1200px;margin:auto;">
-
-    <div>
-      <h2 class="gold" style="font-size:38px;margin-bottom:20px;">Celebrate With Us</h2>
-      <p style="opacity:.8;line-height:1.8;margin-bottom:30px;">
-        Our spacious party hall is perfect for birthdays, engagements,
-        corporate gatherings and family celebrations.
-        Elegant décor and exceptional service ensure a memorable experience.
-      </p>
-      <a href="#" class="cta-btn">Enquire Now</a>
-    </div>
-
-    <div>
-      <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=1200&q=80" style="width:100%;border-radius:20px;">
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- ================= MENU PREVIEW ================= -->
-
-<section>
-  <div style="text-align:center;margin-bottom:50px;">
-    <h2 class="gold" style="font-size:38px;">Menu Highlights</h2>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;max-width:1000px;margin:auto;text-align:center;">
-
-    <div class="menu-box">
-      <h3>Starters</h3>
-      <p>Soups & Appetizers</p>
-    </div>
-
-    <div class="menu-box">
-      <h3>Main Course</h3>
-      <p>Biryani & Curries</p>
-    </div>
-
-    <div class="menu-box">
-      <h3>Desserts</h3>
-      <p>Sweet Endings</p>
-    </div>
-
-    <div class="menu-box">
-      <h3>Beverages</h3>
-      <p>Fresh & Refreshing</p>
-    </div>
-
-  </div>
-</section>
-
-
-
-<!-- ================= TESTIMONIALS ================= -->
-
-<section style="background:#111;text-align:center;">
-  <h2 class="gold" style="font-size:38px;margin-bottom:20px;">Loved By 2000+ Guests</h2>
-  <p style="max-width:700px;margin:auto;opacity:.8;line-height:1.8;">
-    “It was an awesome place with good ambience, exotic food and humble service.”  
-    <br><br>
-    “Tasty food at nice location and fast serving by staff.”
-  </p>
-</section>
-
-
-
-<!-- ================= GALLERY ================= -->
-
-<section>
-  <div style="text-align:center;margin-bottom:60px;">
-    <h2 class="gold" style="font-size:38px;">Gallery</h2>
-  </div>
-
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1200px;margin:auto;">
-    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:15px;">
-    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:15px;">
-    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" style="width:100%;border-radius:15px;">
-  </div>
-</section>
-
-
-
-<!-- ================= CONTACT SECTION ================= -->
-
-<section style="background:#111;text-align:center;">
-  <h2 class="gold" style="font-size:38px;margin-bottom:20px;">Visit Us Today</h2>
-  <p style="opacity:.8;margin-bottom:30px;">
-    AVS Residency Road, Hosur Inner Ring Rd, Hosur, Tamil Nadu
-  </p>
-  <a href="#" class="cta-btn">Call Now</a>
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer style="background:#0a0a0a;text-align:center;padding:30px 5%;font-size:14px;">
-  © 2026 The Vintage Restaurant & Party Hall. All Rights Reserved.
-</footer>
-
-
-
-<style>
-
-/* Dish Card */
-.dish-card{
-  background:#111;
-  padding:20px;
-  border-radius:20px;
-  transition:0.4s;
-  text-align:center;
-}
-.dish-card img{
-  width:100%;
-  border-radius:15px;
-  margin-bottom:15px;
-}
-.dish-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 15px 40px rgba(0,0,0,0.5);
-}
-
-/* Menu Boxes */
-.menu-box{
-  padding:30px;
-  background:#111;
-  border-radius:20px;
-  transition:0.3s;
-}
-.menu-box:hover{
-  background:#F4D06F;
-  color:#000;
-  cursor:pointer;
-}
-
-</style>
-
 <body>
 
 <header id="navbar">
   <div class="logo">The Vintage</div>
 
-  <nav>
+  <nav id="navMenu">
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Menu</a></li>
@@ -387,14 +338,19 @@ nav ul li a:hover::after{
   </nav>
 
   <a href="#" class="cta-btn">Reserve Table</a>
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 </header>
 
-
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-content">
-    <h1><span class="gold">Premium Dining</span> & Celebrations in Hosur</h1>
-    <p>Authentic flavours, elegant ambience and unforgettable celebrations — welcome to The Vintage Restaurant & Party Hall.</p>
-
+  <div class="reveal">
+    <h1><span class="gold">Premium Dining</span> & Celebrations</h1>
+    <p>Authentic flavours and unforgettable celebrations in Hosur.</p>
     <div class="hero-buttons">
       <a href="#" class="cta-btn">Book Party Hall</a>
       <a href="#" class="btn-outline">View Menu</a>
@@ -402,15 +358,98 @@ nav ul li a:hover::after{
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="dark reveal">
+  <div class="container" style="text-align:center;max-width:800px;">
+    <h2 class="gold">Our Story</h2>
+    <p style="opacity:.8;line-height:1.8;margin-top:20px;">
+      The Vintage Restaurant & Party Hall blends authentic cuisine,
+      elegant ambience and warm hospitality to create memorable dining experiences.
+    </p>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<section class="reveal">
+  <div class="container">
+    <h2 class="gold" style="text-align:center;margin-bottom:60px;">Signature Dishes</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1604908176997-43142e4f0b6f?auto=format&fit=crop&w=800&q=80">
+        <h3>Chicken Maharani</h3>
+      </div>
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80">
+        <h3>Special Biryani</h3>
+      </div>
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1625944525533-473f1a2a0e5d?auto=format&fit=crop&w=800&q=80">
+        <h3>Pineapple Chicken</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTY HALL -->
+<section class="dark reveal">
+  <div class="container" style="text-align:center;max-width:800px;">
+    <h2 class="gold">Celebrate With Us</h2>
+    <p style="opacity:.8;margin:20px 0;">
+      Perfect venue for birthdays, engagements & corporate events.
+    </p>
+    <a href="#" class="cta-btn">Enquire Now</a>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="reveal">
+  <div class="container">
+    <h2 class="gold" style="text-align:center;margin-bottom:60px;">Gallery</h2>
+    <div class="grid gallery" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80">
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 The Vintage Restaurant & Party Hall. All Rights Reserved.
+</footer>
+
+<a href="#" class="whatsapp">☎</a>
+
+<div class="mobile-bar">
+  <a href="#">Reserve Table</a>
+</div>
 
 <script>
 
-/* Navbar scroll animation */
-
-window.addEventListener("scroll", function(){
-  const navbar = document.getElementById("navbar");
-  navbar.classList.toggle("scrolled", window.scrollY > 50);
+/* Navbar Scroll */
+window.addEventListener("scroll",function(){
+  document.getElementById("navbar")
+  .classList.toggle("scrolled",window.scrollY>50);
 });
+
+/* Hamburger */
+const hamburger=document.getElementById("hamburger");
+const navMenu=document.getElementById("navMenu");
+
+hamburger.addEventListener("click",()=>{
+  navMenu.classList.toggle("active");
+});
+
+/* Scroll Reveal */
+function reveal(){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    const windowHeight=window.innerHeight;
+    const elementTop=el.getBoundingClientRect().top;
+    if(elementTop<windowHeight-100){
+      el.classList.add("active");
+    }
+  });
+}
+window.addEventListener("scroll",reveal);
 
 </script>
 
