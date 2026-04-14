@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Party Hall Inquiry | The Vintage Restaurant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:#0a0a0c;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+a{text-decoration:none;color:inherit}
+
+/* ================= HERO ================= */
+
+.ph-hero{
+  height:70vh;
+  background:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=1974&auto=format&fit=crop') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.ph-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+}
+
+.ph-hero h1{
+  position:relative;
+  z-index:2;
+  font-family:'Playfair Display',serif;
+  font-size:60px;
+  letter-spacing:6px;
+}
+
+/* ================= INQUIRY SECTION ================= */
+
+.ph-section{
+  padding:100px 8%;
+  display:flex;
+  gap:80px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+
+.ph-form{
+  flex:1;
+  min-width:320px;
+}
+
+.ph-form h2{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  margin-bottom:40px;
+}
+
+.ph-form label{
+  font-size:12px;
+  letter-spacing:2px;
+  display:block;
+  margin-bottom:8px;
+  opacity:.7;
+}
+
+.ph-form input,
+.ph-form select,
+.ph-form textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:25px;
+  background:#111;
+  border:1px solid #222;
+  color:#fff;
+  border-radius:6px;
+  outline:none;
+  transition:.3s;
+  font-family:'Poppins',sans-serif;
+}
+
+.ph-form textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.ph-form input:focus,
+.ph-form select:focus,
+.ph-form textarea:focus{
+  border-color:#F4D06F;
+}
+
+.ph-btn{
+  background:#F4D06F;
+  color:#000;
+  padding:14px 30px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  border-radius:30px;
+  transition:.3s;
+}
+
+.ph-btn:hover{
+  background:#e5bd5d;
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(244,208,111,0.3);
+}
+
+.ph-image{
+  flex:1;
+  min-width:320px;
+}
+
+.ph-image img{
+  width:100%;
+  border-radius:12px;
+}
+
+/* ================= INFO SECTION ================= */
+
+.ph-info{
+  padding:100px 8%;
+  background:#0f0f12;
+  text-align:center;
+}
+
+.ph-info h3{
+  font-family:'Playfair Display',serif;
+  font-size:36px;
+  margin-bottom:20px;
+}
+
+.ph-info p{
+  max-width:700px;
+  margin:auto;
+  opacity:.7;
+  line-height:1.8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .ph-hero h1{
+    font-size:36px;
+  }
+
+  .ph-section{
+    flex-direction:column;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="ph-hero">
+  <h1>PARTY HALL</h1>
+</section>
+
+<!-- INQUIRY FORM -->
+<section class="ph-section">
+
+  <div class="ph-form">
+    <h2>Event Inquiry</h2>
+
+    <form onsubmit="event.preventDefault(); alert('Inquiry submitted successfully. Our team will contact you shortly.');">
+      
+      <label>Full Name</label>
+      <input type="text" required>
+
+      <label>Email Address</label>
+      <input type="email" required>
+
+      <label>Mobile Number</label>
+      <input type="tel" required>
+
+      <label>Event Type</label>
+      <select required>
+        <option value="">Select Event</option>
+        <option>Birthday Party</option>
+        <option>Corporate Event</option>
+        <option>Engagement Ceremony</option>
+        <option>Reception</option>
+        <option>Other</option>
+      </select>
+
+      <label>Event Date</label>
+      <input type="date" required>
+
+      <label>From Time</label>
+      <input type="time" required>
+
+      <label>To Time</label>
+      <input type="time" required>
+
+      <label>Expected Guests</label>
+      <input type="number" placeholder="Approx number of guests" required>
+
+      <label>Additional Details</label>
+      <textarea placeholder="Decoration requirements, catering preferences, special arrangements..."></textarea>
+
+      <button class="ph-btn">Submit Inquiry</button>
+
+    </form>
+  </div>
+
+  <div class="ph-image">
+    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=1974&auto=format&fit=crop">
+  </div>
+
+</section>
+
+<!-- INFO -->
+<section class="ph-info">
+  <h3>Host Memorable Celebrations</h3>
+  <p>
+    Our elegant party hall is designed to host unforgettable celebrations. 
+    Whether it's a birthday, corporate event, or family gathering, 
+    we provide customized arrangements tailored to your needs.
+  </p>
+</section>
+
+</body>
+</html>
