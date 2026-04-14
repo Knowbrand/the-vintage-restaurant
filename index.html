@@ -413,47 +413,226 @@ footer{
   </div>
 </section>
 
-<footer>
-<!-- ================= PREMIUM FOOTER CTA ================= -->
+<!-- ================= LUXURY RESTAURANT FOOTER ================= -->
 
-<section class="vintage-footer">
-  <div class="footer-inner">
+<section class="lux-footer">
 
-    <div class="footer-top">
+  <div class="lux-glow"></div>
 
-      <div class="footer-left">
-        <p class="footer-label">Contact</p>
+  <div class="lux-container">
+
+    <div class="lux-top">
+
+      <div class="lux-col">
+        <span class="lux-label">Contact</span>
         <h3>thevintagerestaurant@gmail.com</h3>
         <p>+91 95002 45333</p>
       </div>
 
-      <div class="footer-center">
-        <h2>Planning a Celebration?</h2>
-        <a href="#" class="footer-btn">Book Your Event →</a>
+      <div class="lux-center">
+        <h2>Reserve Your Special Evening</h2>
+        <p>Private dining • Birthday celebrations • Corporate events</p>
+        <a href="#" class="lux-btn">Book a Table →</a>
       </div>
 
-      <div class="footer-right">
-        <p class="footer-label">Location</p>
+      <div class="lux-col">
+        <span class="lux-label">Location</span>
         <h3>Hosur, Tamil Nadu</h3>
         <p>AVS Residency Road, Inner Ring Rd</p>
       </div>
 
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2026 The Vintage Restaurant & Party Hall. All rights reserved.</p>
-      <div class="footer-links">
+    <div class="lux-divider"></div>
+
+    <div class="lux-bottom">
+      <p>© 2026 The Vintage Restaurant & Party Hall. All Rights Reserved.</p>
+
+      <div class="lux-links">
         <a href="#">Instagram</a>
         <a href="#">Facebook</a>
-        <a href="#">Maps</a>
+        <a href="#">Google Maps</a>
       </div>
     </div>
 
-    <div class="footer-bg-text">LET’S CELEBRATE</div>
+    <div class="lux-bg-text">FINE DINING</div>
 
   </div>
+
 </section>
-</footer>
+
+<style>
+
+/* ================= LUXURY FOOTER ================= */
+
+.lux-footer{
+  position:relative;
+  background:#0a0a0c;
+  padding:140px 8% 90px;
+  overflow:hidden;
+  color:#fff;
+}
+
+/* Gold radial glow */
+.lux-glow{
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle, rgba(244,208,111,0.12) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:1;
+}
+
+.lux-container{
+  position:relative;
+  max-width:1200px;
+  margin:auto;
+  z-index:2;
+}
+
+/* Top layout */
+
+.lux-top{
+  display:flex;
+  justify-content:space-between;
+  gap:50px;
+  flex-wrap:wrap;
+  margin-bottom:70px;
+}
+
+.lux-col{
+  flex:1;
+  min-width:250px;
+}
+
+.lux-label{
+  display:block;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#F4D06F;
+  margin-bottom:15px;
+}
+
+.lux-col h3{
+  font-weight:500;
+  margin-bottom:8px;
+}
+
+.lux-col p{
+  opacity:.7;
+}
+
+/* Center content */
+
+.lux-center{
+  flex:1.2;
+  min-width:300px;
+  text-align:center;
+}
+
+.lux-center h2{
+  font-family:'Playfair Display', serif;
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+.lux-center p{
+  opacity:.7;
+  margin-bottom:30px;
+}
+
+.lux-btn{
+  display:inline-block;
+  padding:14px 32px;
+  background:#F4D06F;
+  color:#000;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  transition:all .3s ease;
+}
+
+.lux-btn:hover{
+  background:#e5bd5d;
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(244,208,111,0.3);
+}
+
+/* Divider */
+
+.lux-divider{
+  height:1px;
+  background:linear-gradient(to right, transparent, rgba(244,208,111,0.3), transparent);
+  margin-bottom:30px;
+}
+
+/* Bottom */
+
+.lux-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  font-size:13px;
+  opacity:.6;
+}
+
+.lux-links{
+  display:flex;
+  gap:25px;
+}
+
+.lux-links a{
+  text-decoration:none;
+  color:#fff;
+  transition:.3s;
+}
+
+.lux-links a:hover{
+  color:#F4D06F;
+}
+
+/* Giant background typography */
+
+.lux-bg-text{
+  position:absolute;
+  bottom:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:140px;
+  font-weight:700;
+  letter-spacing:6px;
+  color:rgba(244,208,111,0.04);
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .lux-top{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .lux-bottom{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
+
+  .lux-bg-text{
+    font-size:70px;
+  }
+
+}
+
+</style>
 
 <a href="#" class="whatsapp">☎</a>
 
