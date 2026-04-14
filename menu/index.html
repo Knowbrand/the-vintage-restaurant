@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu | The Vintage Restaurant</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* ================= GLOBAL ================= */
+
 *{
   margin:0;
   padding:0;
@@ -16,168 +19,278 @@
 
 body{
   font-family:'Poppins',sans-serif;
-  background:#f4f4f4;
-  color:#222;
-}
-
-/* HEADER */
-.menu-header{
-  text-align:center;
-  padding:60px 8% 20px;
-}
-
-.menu-header h1{
-  font-size:36px;
-  letter-spacing:2px;
-  margin-bottom:25px;
-  color:#b81d1d;
-}
-
-/* TABS */
-.tabs{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-  margin-bottom:40px;
-}
-
-.tab{
-  padding:10px 22px;
-  border-radius:30px;
-  background:#fff;
-  cursor:pointer;
-  border:1px solid #ddd;
-  transition:0.3s;
-  font-size:14px;
-}
-
-.tab.active{
-  background:#b81d1d;
+  background:#0c0c0f;
   color:#fff;
-  border-color:#b81d1d;
 }
 
-/* GRID */
-.menu-grid{
-  width:85%;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+/* ================= NAVBAR ================= */
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:999;
+  transition:.4s;
+}
+
+.navbar.scrolled{
+  padding:14px 8%;
+  background:#000;
+}
+
+.logo{
+  font-family:'Playfair Display',serif;
+  font-size:22px;
+  letter-spacing:2px;
+}
+
+.nav-links{
+  display:flex;
   gap:30px;
-  padding-bottom:80px;
+  align-items:center;
 }
 
-/* CARD */
-.card{
-  background:#fff;
-  border-radius:15px;
-  padding:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.05);
+.nav-links a{
+  text-decoration:none;
+  color:#fff;
+  font-size:14px;
+  transition:.3s;
+}
+
+.nav-links a:hover{
+  color:#F4D06F;
+}
+
+.nav-btn{
+  padding:10px 22px;
+  background:#F4D06F;
+  color:#000 !important;
+  border-radius:30px;
+  font-weight:600;
+}
+
+/* ================= HERO ================= */
+
+.menu-hero{
+  height:50vh;
+  background:url('https://images.unsplash.com/photo-1555396273-367ea4eb4db5') center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  transition:0.3s;
+  margin-top:80px;
 }
 
-.card:hover{
-  transform:translateY(-5px);
+.menu-hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:50px;
+  letter-spacing:3px;
 }
 
-.card img{
-  width:120px;
-  height:120px;
+/* ================= CATEGORY TABS ================= */
+
+.menu-tabs{
+  text-align:center;
+  margin:70px 0 40px;
+}
+
+.menu-tabs button{
+  padding:10px 25px;
+  margin:10px;
+  border:none;
+  background:#1a1a1f;
+  color:#fff;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.menu-tabs button.active,
+.menu-tabs button:hover{
+  background:#F4D06F;
+  color:#000;
+}
+
+/* ================= MENU GRID ================= */
+
+.menu-section{
+  display:none;
+  padding:0 8% 80px;
+}
+
+.menu-section.active{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.menu-card{
+  background:#141418;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+  transition:.4s;
+}
+
+.menu-card:hover{
+  transform:translateY(-6px);
+}
+
+.menu-card img{
+  width:100px;
+  height:100px;
   object-fit:cover;
   border-radius:50%;
   margin-bottom:15px;
 }
 
-.card h3{
-  font-size:16px;
-  margin-bottom:8px;
+.menu-card h3{
+  font-family:'Playfair Display',serif;
+  margin-bottom:10px;
 }
 
-.card p{
+.menu-card p{
   font-size:13px;
-  opacity:.7;
+  opacity:.6;
   margin-bottom:10px;
 }
 
 .price{
+  color:#F4D06F;
   font-weight:600;
-  margin-bottom:10px;
 }
 
-.btn{
-  background:#b81d1d;
-  color:#fff;
-  padding:8px 16px;
-  border:none;
-  border-radius:20px;
-  cursor:pointer;
-  font-size:13px;
+/* ================= FOOTER ================= */
+
+.footer{
+  background:#0a0a0c;
+  padding:80px 8%;
+  text-align:center;
+  border-top:1px solid rgba(244,208,111,0.2);
 }
+
+.footer h2{
+  font-family:'Playfair Display',serif;
+  margin-bottom:20px;
+}
+
+.footer p{
+  opacity:.6;
+  margin-bottom:20px;
+}
+
+.footer a{
+  text-decoration:none;
+  color:#F4D06F;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .menu-hero h1{
+    font-size:36px;
+  }
+
+}
+
 </style>
 </head>
 <body>
 
-<section class="menu-header">
-  <h1>OUR MENU</h1>
-
-  <div class="tabs">
-    <div class="tab active" data-category="breakfast">Breakfast</div>
-    <div class="tab" data-category="lunch">Lunch</div>
-    <div class="tab" data-category="dinner">Dinner</div>
-    <div class="tab" data-category="dessert">Dessert</div>
-    <div class="tab" data-category="coffee">Coffee</div>
+<!-- NAVBAR -->
+<div class="navbar" id="navbar">
+  <div class="logo">THE VINTAGE</div>
+  <div class="nav-links">
+    <a href="../">Home</a>
+    <a href="../reservation/">Reservation</a>
+    <a href="../partyhall/">Party Hall</a>
+    <a href="#" class="nav-btn">Menu</a>
   </div>
+</div>
+
+<!-- HERO -->
+<section class="menu-hero">
+  <h1>Our Menu</h1>
 </section>
 
-<section class="menu-grid" id="menuContainer"></section>
+<!-- TABS -->
+<div class="menu-tabs">
+  <button class="tab-btn active" onclick="showMenu('breakfast',this)">Breakfast</button>
+  <button class="tab-btn" onclick="showMenu('lunch',this)">Lunch</button>
+  <button class="tab-btn" onclick="showMenu('dinner',this)">Dinner</button>
+  <button class="tab-btn" onclick="showMenu('dessert',this)">Desserts</button>
+  <button class="tab-btn" onclick="showMenu('drinks',this)">Drinks</button>
+</div>
+
+<!-- MENU SECTIONS -->
+
+<div id="breakfast" class="menu-section active"></div>
+<div id="lunch" class="menu-section"></div>
+<div id="dinner" class="menu-section"></div>
+<div id="dessert" class="menu-section"></div>
+<div id="drinks" class="menu-section"></div>
+
+<!-- FOOTER -->
+<section class="footer">
+  <h2>Experience Fine Dining in Hosur</h2>
+  <p>Premium flavours • Elegant ambience • Unforgettable memories</p>
+  <p>© 2026 The Vintage Restaurant & Party Hall</p>
+</section>
 
 <script>
-const menuData = {
-  breakfast: generateItems("Breakfast Item"),
-  lunch: generateItems("Lunch Item"),
-  dinner: generateItems("Dinner Item"),
-  dessert: generateItems("Dessert Item"),
-  coffee: generateItems("Coffee Item")
-};
 
-function generateItems(title){
-  return Array.from({length:10},(_,i)=>({
-    name: `${title} ${i+1}`,
-    desc: "Delicious freshly prepared dish made with premium ingredients.",
-    price: "₹199",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=300"
-  }));
-}
-
-const container = document.getElementById("menuContainer");
-const tabs = document.querySelectorAll(".tab");
-
-function renderMenu(category){
-  container.innerHTML="";
-  menuData[category].forEach(item=>{
-    container.innerHTML+=`
-      <div class="card">
-        <img src="${item.image}">
-        <h3>${item.name}</h3>
-        <p>${item.desc}</p>
-        <div class="price">${item.price}</div>
-        <button class="btn">Add to Cart</button>
-      </div>
-    `;
-  });
-}
-
-tabs.forEach(tab=>{
-  tab.addEventListener("click",()=>{
-    tabs.forEach(t=>t.classList.remove("active"));
-    tab.classList.add("active");
-    renderMenu(tab.dataset.category);
-  });
+/* Navbar scroll */
+window.addEventListener("scroll",function(){
+  document.getElementById("navbar").classList.toggle("scrolled",window.scrollY>50);
 });
 
-renderMenu("breakfast");
+/* Dynamic Menu Data */
+
+const menuData = {
+  breakfast:["Pancakes","Omelette","French Toast","Idli & Sambar","Masala Dosa","Bagel","Paratha","Poha","Upma","Croissant"],
+  lunch:["Veg Biryani","Chicken Biryani","Paneer Butter Masala","Dal Tadka","Butter Naan","Fried Rice","Grilled Chicken","Fish Curry","Veg Thali","Mutton Curry"],
+  dinner:["Tandoori Chicken","Lasagna","Steak","Kebab Platter","Pizza","Pasta","Seafood Platter","Shawarma","BBQ Chicken","Cheese Burst Naan"],
+  dessert:["Brownie","Ice Cream","Gulab Jamun","Cheesecake","Tiramisu","Chocolate Lava","Cupcakes","Rasmalai","Apple Pie","Donuts"],
+  drinks:["Cold Coffee","Mocktail","Fresh Lime Soda","Mango Shake","Lassi","Green Tea","Cappuccino","Espresso","Soft Drinks","Mineral Water"]
+};
+
+function loadMenus(){
+  for(const category in menuData){
+    const section = document.getElementById(category);
+    menuData[category].forEach(item=>{
+      section.innerHTML += `
+        <div class="menu-card">
+          <img src="https://source.unsplash.com/100x100/?food" alt="">
+          <h3>${item}</h3>
+          <p>Deliciously prepared with premium ingredients.</p>
+          <div class="price">₹299</div>
+        </div>
+      `;
+    });
+  }
+}
+
+function showMenu(category,btn){
+  document.querySelectorAll(".menu-section").forEach(sec=>sec.classList.remove("active"));
+  document.getElementById(category).classList.add("active");
+
+  document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+}
+
+loadMenus();
+
 </script>
 
 </body>
