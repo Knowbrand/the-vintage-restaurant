@@ -3,25 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Vintage Restaurant | Hosur</title>
+<title>The Vintage Restaurant & Party Hall</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+
+/* ================= GLOBAL ================= */
+
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
 }
 
 body{
-  background:#0b0b0b;
+  font-family:'Poppins',sans-serif;
+  background:#0F0F12;
   color:#fff;
+  overflow-x:hidden;
+}
+
+section{
+  padding:110px 8%;
+  position:relative;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+}
+
+.gold{
+  color:#F4D06F;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
 }
 
 /* ================= NAVBAR ================= */
@@ -35,285 +53,272 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  transition:.4s;
   z-index:1000;
-  transition:0.4s;
 }
 
 header.scrolled{
-  background:#0b0b0b;
+  background:rgba(15,15,18,.95);
+  backdrop-filter:blur(10px);
   padding:12px 8%;
-  box-shadow:0 5px 20px rgba(0,0,0,0.6);
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .logo{
   font-size:22px;
-  font-weight:600;
-  letter-spacing:2px;
-  color:#d4af37;
+  color:#F4D06F;
 }
 
 nav ul{
   list-style:none;
   display:flex;
-  gap:40px;
+  gap:35px;
 }
 
-nav a{
+nav ul li a{
   text-decoration:none;
   color:#fff;
   font-size:14px;
-  transition:0.3s;
+  position:relative;
 }
 
-nav a:hover{
-  color:#d4af37;
+nav ul li a::after{
+  content:'';
+  position:absolute;
+  width:0;
+  height:2px;
+  left:0;
+  bottom:-6px;
+  background:#F4D06F;
+  transition:.3s;
 }
+
+nav ul li a:hover::after{
+  width:100%;
+}
+
+.cta-btn{
+  background:#F4D06F;
+  color:#000;
+  padding:10px 22px;
+  border-radius:30px;
+  font-size:13px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.cta-btn:hover{
+  background:#e2bb59;
+}
+
+/* ================= HAMBURGER ================= */
 
 .hamburger{
   display:none;
   flex-direction:column;
+  gap:5px;
   cursor:pointer;
 }
 
 .hamburger span{
-  height:3px;
   width:25px;
+  height:2px;
   background:#fff;
-  margin:4px 0;
-  transition:0.3s;
+  transition:.3s;
 }
 
 /* ================= HERO ================= */
 
 .hero{
   height:100vh;
-  background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),
-  url('https://images.unsplash.com/photo-1555992336-03a23c2f9d8d');
-  background-size:cover;
-  background-position:center;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  padding:0 20px;
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.7)),
+  url('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
 }
 
 .hero h1{
-  font-size:60px;
-  color:#d4af37;
-}
-
-.hero p{
-  margin:20px 0;
-  color:#ddd;
-}
-
-.btn{
-  display:inline-block;
-  padding:14px 35px;
-  background:#d4af37;
-  color:#000;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  transition:0.3s;
-}
-
-.btn:hover{
-  background:#fff;
-}
-
-/* ================= SECTIONS ================= */
-
-section{
-  padding:100px 8%;
-}
-
-.section-light{
-  background:#121212;
-}
-
-.section-dark{
-  background:#0b0b0b;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:60px;
-}
-
-.section-title h2{
-  font-size:40px;
-  color:#d4af37;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:30px;
-}
-
-.card{
-  background:#1a1a1a;
-  padding:30px;
-  border-radius:20px;
-  transition:0.4s;
-}
-
-.card:hover{
-  transform:translateY(-10px);
-  background:#222;
-}
-
-/* ================= CTA ================= */
-
-.cta{
-  background:linear-gradient(90deg,#000,#1a1200);
-  text-align:center;
-}
-
-.cta h2{
-  font-size:42px;
+  font-size:55px;
   margin-bottom:20px;
 }
 
-.cta p{
-  color:#bbb;
-  margin-bottom:30px;
+.hero p{
+  opacity:.85;
+  margin-bottom:35px;
 }
 
-/* ================= BIG FOOTER ================= */
-
-.footer-big{
-  background:#000;
-  padding:120px 8% 80px;
-  position:relative;
-  overflow:hidden;
-}
-
-.footer-big::before{
-  content:"FINE DINING";
-  position:absolute;
-  font-size:150px;
-  font-weight:700;
-  color:rgba(212,175,55,0.05);
-  bottom:40px;
-  left:50%;
-  transform:translateX(-50%);
-  white-space:nowrap;
-}
-
-.footer-content{
+.hero-buttons{
   display:flex;
-  justify-content:space-between;
+  gap:20px;
+  justify-content:center;
   flex-wrap:wrap;
-  gap:40px;
 }
 
-.footer-box{
-  flex:1;
-  min-width:250px;
-}
-
-.footer-box h4{
-  color:#d4af37;
-  margin-bottom:15px;
-  letter-spacing:2px;
-}
-
-.footer-box p{
-  color:#bbb;
-  margin-bottom:10px;
-}
-
-/* ================= SHORT FOOTER ================= */
-
-.footer-bottom{
-  background:#0a0a0a;
-  padding:20px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  flex-wrap:wrap;
-  font-size:14px;
-  border-top:1px solid rgba(255,255,255,0.05);
-}
-
-.footer-bottom a{
-  color:#bbb;
+.btn-outline{
+  border:1px solid #F4D06F;
+  padding:10px 22px;
+  border-radius:30px;
+  color:#F4D06F;
   text-decoration:none;
-  margin-left:20px;
+  transition:.3s;
 }
 
-.footer-bottom a:hover{
-  color:#d4af37;
+.btn-outline:hover{
+  background:#F4D06F;
+  color:#000;
 }
 
-/* ================= WHATSAPP ================= */
+/* ================= CARDS ================= */
+
+.grid{
+  display:grid;
+  gap:30px;
+}
+
+.dish-card, .menu-box{
+  background:#111;
+  padding:25px;
+  border-radius:20px;
+  transition:.4s;
+  text-align:center;
+}
+
+.dish-card img{
+  width:100%;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.dish-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
+}
+
+.menu-box:hover{
+  background:#F4D06F;
+  color:#000;
+}
+
+/* ================= DARK SECTION ================= */
+
+.dark{
+  background:#111;
+}
+
+/* ================= GALLERY ================= */
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0a0a0a;
+  text-align:center;
+  padding:30px;
+  font-size:14px;
+}
+
+/* ================= FLOATING WHATSAPP ================= */
 
 .whatsapp{
   position:fixed;
   bottom:25px;
   right:25px;
   background:#25D366;
-  width:60px;
-  height:60px;
+  width:55px;
+  height:55px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:28px;
+  font-size:24px;
   color:#fff;
   text-decoration:none;
-  box-shadow:0 10px 20px rgba(0,0,0,0.4);
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  z-index:999;
 }
 
-/* ================= MOBILE ================= */
+/* ================= MOBILE BOOKING BAR ================= */
 
-@media(max-width:768px){
+.mobile-bar{
+  display:none;
+}
+
+/* ================= SCROLL REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
 
   nav{
     position:fixed;
     top:0;
     right:-100%;
     height:100vh;
-    width:70%;
-    background:#000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:0.4s;
+    width:260px;
+    background:#111;
+    flex-direction:column;
+    padding-top:100px;
+    transition:.4s;
+  }
+
+  nav ul{
+    flex-direction:column;
+    gap:25px;
+    text-align:center;
   }
 
   nav.active{
     right:0;
   }
 
-  nav ul{
-    flex-direction:column;
-    gap:30px;
-  }
-
   .hamburger{
     display:flex;
   }
 
+  .cta-btn{
+    display:none;
+  }
+
   .hero h1{
-    font-size:40px;
+    font-size:36px;
   }
 
-  .footer-content{
-    flex-direction:column;
-    text-align:center;
+  .mobile-bar{
+    display:flex;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:#F4D06F;
+    justify-content:center;
+    padding:12px;
+    z-index:1000;
   }
 
-  .footer-bottom{
-    flex-direction:column;
-    gap:15px;
-    text-align:center;
+  .mobile-bar a{
+    color:#000;
+    text-decoration:none;
+    font-weight:600;
   }
 
 }
+
 </style>
 </head>
 
@@ -322,88 +327,347 @@ section{
 <header id="navbar">
   <div class="logo">The Vintage</div>
 
-  <nav id="nav">
+  <nav id="navMenu">
     <ul>
       <li><a href="#">Home</a></li>
       <li><a href="#">Menu</a></li>
-      <li><a href="#">Events</a></li>
+      <li><a href="#">Party Hall</a></li>
       <li><a href="#">Gallery</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
   </nav>
 
-  <div class="hamburger" onclick="toggleMenu()">
+  <a href="#" class="cta-btn">Reserve Table</a>
+
+  <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <div>
-    <h1>Experience Fine Dining</h1>
-    <p>Luxury ambience • Premium cuisine • Elegant celebrations</p>
-    <a href="#" class="btn">Book a Table</a>
+  <div class="reveal">
+    <h1><span class="gold">Premium Dining</span> & Celebrations</h1>
+    <p>Authentic flavours and unforgettable celebrations in Hosur.</p>
+    <div class="hero-buttons">
+      <a href="#" class="cta-btn">Book Party Hall</a>
+      <a href="#" class="btn-outline">View Menu</a>
+    </div>
   </div>
 </section>
 
-<section class="section-light">
-  <div class="section-title">
-    <h2>Our Specialties</h2>
-  </div>
-  <div class="cards">
-    <div class="card">Signature Starters</div>
-    <div class="card">Authentic Main Course</div>
-    <div class="card">Premium Desserts</div>
+<!-- ABOUT -->
+<section class="dark reveal">
+  <div class="container" style="text-align:center;max-width:800px;">
+    <h2 class="gold">Our Story</h2>
+    <p style="opacity:.8;line-height:1.8;margin-top:20px;">
+      The Vintage Restaurant & Party Hall blends authentic cuisine,
+      elegant ambience and warm hospitality to create memorable dining experiences.
+    </p>
   </div>
 </section>
 
-<section class="section-dark cta">
-  <h2>Reserve Your Special Evening</h2>
-  <p>Private dining • Birthday celebrations • Corporate events</p>
-  <a href="#" class="btn">Book Now</a>
+<!-- SIGNATURE -->
+<section class="reveal">
+  <div class="container">
+    <h2 class="gold" style="text-align:center;margin-bottom:60px;">Signature Dishes</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1604908176997-43142e4f0b6f?auto=format&fit=crop&w=800&q=80">
+        <h3>Chicken Maharani</h3>
+      </div>
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&q=80">
+        <h3>Special Biryani</h3>
+      </div>
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1625944525533-473f1a2a0e5d?auto=format&fit=crop&w=800&q=80">
+        <h3>Pineapple Chicken</h3>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer class="footer-big">
-  <div class="footer-content">
-    <div class="footer-box">
-      <h4>CONTACT</h4>
-      <p>thevintagerestaurant@gmail.com</p>
-      <p>+91 95002 45333</p>
-    </div>
+<!-- PARTY HALL -->
+<section class="dark reveal">
+  <div class="container" style="text-align:center;max-width:800px;">
+    <h2 class="gold">Celebrate With Us</h2>
+    <p style="opacity:.8;margin:20px 0;">
+      Perfect venue for birthdays, engagements & corporate events.
+    </p>
+    <a href="#" class="cta-btn">Enquire Now</a>
+  </div>
+</section>
 
-    <div class="footer-box" style="text-align:center;">
-      <h2 style="color:#d4af37;">The Vintage</h2>
-      <p>Luxury dining experience in Hosur</p>
-    </div>
-
-    <div class="footer-box">
-      <h4>LOCATION</h4>
-      <p>Hosur, Tamil Nadu</p>
-      <p>AVS Residency Road, Inner Ring Rd</p>
+<!-- GALLERY -->
+<section class="reveal">
+  <div class="container">
+    <h2 class="gold" style="text-align:center;margin-bottom:60px;">Gallery</h2>
+    <div class="grid gallery" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));">
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80">
+      <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80">
     </div>
   </div>
-</footer>
+</section>
 
-<div class="footer-bottom">
-  <div>© 2026 The Vintage Restaurant & Party Hall. All Rights Reserved.</div>
-  <div>
-    <a href="#">Instagram</a>
-    <a href="#">Facebook</a>
-    <a href="#">Google Maps</a>
+<!-- ================= LUXURY RESTAURANT FOOTER ================= -->
+
+<section class="lux-footer">
+
+  <div class="lux-glow"></div>
+
+  <div class="lux-container">
+
+    <div class="lux-top">
+
+      <div class="lux-col">
+        <span class="lux-label">Contact</span>
+        <h3>thevintagerestaurant@gmail.com</h3>
+        <p>+91 95002 45333</p>
+      </div>
+
+      <div class="lux-center">
+        <h2>Reserve Your Special Evening</h2>
+        <p>Private dining • Birthday celebrations • Corporate events</p>
+        <a href="#" class="lux-btn">Book a Table →</a>
+      </div>
+
+      <div class="lux-col">
+        <span class="lux-label">Location</span>
+        <h3>Hosur, Tamil Nadu</h3>
+        <p>AVS Residency Road, Inner Ring Rd</p>
+      </div>
+
+    </div>
+
+    <div class="lux-divider"></div>
+
+    <div class="lux-bottom">
+      <p>© 2026 The Vintage Restaurant & Party Hall. All Rights Reserved.</p>
+
+      <div class="lux-links">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Google Maps</a>
+      </div>
+    </div>
+
+    <div class="lux-bg-text">FINE DINING</div>
+
   </div>
-</div>
+
+</section>
+
+<style>
+
+/* ================= LUXURY FOOTER ================= */
+
+.lux-footer{
+  position:relative;
+  background:#0a0a0c;
+  padding:140px 8% 90px;
+  overflow:hidden;
+  color:#fff;
+}
+
+/* Gold radial glow */
+.lux-glow{
+  position:absolute;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle, rgba(244,208,111,0.12) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:1;
+}
+
+.lux-container{
+  position:relative;
+  max-width:1200px;
+  margin:auto;
+  z-index:2;
+}
+
+/* Top layout */
+
+.lux-top{
+  display:flex;
+  justify-content:space-between;
+  gap:50px;
+  flex-wrap:wrap;
+  margin-bottom:70px;
+}
+
+.lux-col{
+  flex:1;
+  min-width:250px;
+}
+
+.lux-label{
+  display:block;
+  font-size:11px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:#F4D06F;
+  margin-bottom:15px;
+}
+
+.lux-col h3{
+  font-weight:500;
+  margin-bottom:8px;
+}
+
+.lux-col p{
+  opacity:.7;
+}
+
+/* Center content */
+
+.lux-center{
+  flex:1.2;
+  min-width:300px;
+  text-align:center;
+}
+
+.lux-center h2{
+  font-family:'Playfair Display', serif;
+  font-size:36px;
+  margin-bottom:15px;
+}
+
+.lux-center p{
+  opacity:.7;
+  margin-bottom:30px;
+}
+
+.lux-btn{
+  display:inline-block;
+  padding:14px 32px;
+  background:#F4D06F;
+  color:#000;
+  border-radius:40px;
+  text-decoration:none;
+  font-weight:600;
+  transition:all .3s ease;
+}
+
+.lux-btn:hover{
+  background:#e5bd5d;
+  transform:translateY(-3px);
+  box-shadow:0 10px 25px rgba(244,208,111,0.3);
+}
+
+/* Divider */
+
+.lux-divider{
+  height:1px;
+  background:linear-gradient(to right, transparent, rgba(244,208,111,0.3), transparent);
+  margin-bottom:30px;
+}
+
+/* Bottom */
+
+.lux-bottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  font-size:13px;
+  opacity:.6;
+}
+
+.lux-links{
+  display:flex;
+  gap:25px;
+}
+
+.lux-links a{
+  text-decoration:none;
+  color:#fff;
+  transition:.3s;
+}
+
+.lux-links a:hover{
+  color:#F4D06F;
+}
+
+/* Giant background typography */
+
+.lux-bg-text{
+  position:absolute;
+  bottom:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:140px;
+  font-weight:700;
+  letter-spacing:6px;
+  color:rgba(244,208,111,0.04);
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .lux-top{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .lux-bottom{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
+
+  .lux-bg-text{
+    font-size:70px;
+  }
+
+}
+
+</style>
 
 <a href="#" class="whatsapp">☎</a>
 
+<div class="mobile-bar">
+  <a href="#">Reserve Table</a>
+</div>
+
 <script>
-window.addEventListener("scroll", function(){
-  document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 50);
+
+/* Navbar Scroll */
+window.addEventListener("scroll",function(){
+  document.getElementById("navbar")
+  .classList.toggle("scrolled",window.scrollY>50);
 });
 
-function toggleMenu(){
-  document.getElementById("nav").classList.toggle("active");
+/* Hamburger */
+const hamburger=document.getElementById("hamburger");
+const navMenu=document.getElementById("navMenu");
+
+hamburger.addEventListener("click",()=>{
+  navMenu.classList.toggle("active");
+});
+
+/* Scroll Reveal */
+function reveal(){
+  document.querySelectorAll(".reveal").forEach(el=>{
+    const windowHeight=window.innerHeight;
+    const elementTop=el.getBoundingClientRect().top;
+    if(elementTop<windowHeight-100){
+      el.classList.add("active");
+    }
+  });
 }
+window.addEventListener("scroll",reveal);
+
 </script>
 
 </body>
